@@ -1,0 +1,14 @@
+Todo app storing and deleting infromation from JSON server
+
+1.Create input and button and print infromation in the page. - done
+2. Create a funtion(fetch) to store infromation on the server. - done
+3. create check and del button to appear on the Li with the ToDo. - done
+4. make the ckech button turn completed property on the server to true
+5. check button must use the patch method.
+6. make the del button remove a ToDo from the server and the page.
+7. the add button must use 'POST' method when adding new entries. 
+8. the del button must use del method.
+9. след рефреш трябва да се вижда последното случило се в апа
+
+
+трябва да създам бутоните като глобали променливи, за да мога след това да ги включа в рендър функцията и в адТодо
