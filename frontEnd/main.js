@@ -50,13 +50,13 @@ function addTodo(todo) {
 }
 
 function render(todos) {
-    dom.input.innerHTML = '';
+    // dom.input.innerHTML = '';
     todos.forEach(todo => {
         dom.todos.innerHTML += `
         <li data = "${todo.id}">${todo.id} 
         <span>${todo.title} 
         <button>${checkBtn.innerHTML = '<i class="fa-solid fa-check"></i>'}</button>
-        <button>${delBtn.innerHTML = '<i class="fas fa-trash"></i>'}</button></li>`
+        <button>${delBtn.innerHTML = '<i class="fas fa-trash"></i>'}</button></li>` 
     });
 }
 
@@ -89,7 +89,7 @@ function addTodoOnServer(url, title) {
     .then(r=> r.json())
     .then(data => {
         todos.push(data);
-        render(todos);
+        // render(todos);
     })
 }
 
