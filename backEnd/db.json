@@ -14,36 +14,6 @@
       "id": 3,
       "title": "Learn JavaScript",
       "completed": false
-    },
-    {
-      "title": "c",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "title": "b",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "title": "k",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "title": ";",
-      "completed": false,
-      "id": 7
-    },
-    {
-      "title": "'",
-      "completed": false,
-      "id": 8
-    },
-    {
-      "title": "n",
-      "completed": false,
-      "id": 9
     }
   ]
 }
