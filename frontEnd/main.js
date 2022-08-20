@@ -93,13 +93,21 @@ function checkBtnfetch(url) {
 }
 
 function render(todos) {
+
+     //check button add class
+     checkBtn.classList.add("check-btn");
+     checkBtn.innerHTML = '<i class="fas fa-check"></i>';
+     // trash button add class
+     delBtn.classList.add("del-btn");
+     delBtn.innerHTML = '<i class="fas fa-trash"></i>';
+
     // dom.input.innerHTML = '';
     todos.forEach(todo => {
         dom.todos.innerHTML += `
         <li data = "${todo.id}">${todo.id}. &nbsp; 
         <span>${todo.title}</span>
-        <button check><i class="fa-solid fa-check"></i></button>
-        <button del><i class="fas fa-trash"></i></button></li>`
+        <span><button><i class="fa-solid fa-check"></i></button>
+        <button><i class="fas fa-trash"></i></button></span></li>`
     });
 }
 

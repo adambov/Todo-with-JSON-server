@@ -19,7 +19,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 h1{
@@ -30,7 +29,7 @@ h1{
     -webkit-text-stroke-color: blue;
 }
 
-input, li {
+input, li{
     height: 5vh;
     width: 35vw;
     background-color: rgb(225, 217, 209);
@@ -49,15 +48,33 @@ input, li {
 
 }
 
-span + button{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: 20vw;
+.fa-trash{
+    background-color: lightcoral;;
+}
+.fa-check{
+    background-color: lightgreen;
+}
+
+span > button {
+    background-color: lightgreen;
+    width: 2vw;
+    height: 4vh;
+    border-radius: 1vw;
+    border-style: none;
     cursor: pointer;
 }
 
+button + button {
+    background-color: lightcoral;
+    width: 2vw;
+    height: 4vh;
+    cursor: pointer;
+}
 
+span + span {
+    position: fixed;
+    margin-left: 29vw;
+}
 
 
 
