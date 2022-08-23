@@ -1,22 +1,3 @@
-const dom = {
-    input : document.querySelector('input'),
-    addBtn : document.querySelector('.addBtn'),
-    todos : document.querySelector('.todos'),
-};
-
-const url = "http://localhost:3000";
-
-dom.addBtn.addEventListener('click', addTodo)
-
-
-// create check and del buttons
-const delBtn = document.createElement('button');
-const checkBtn = document.createElement('button');
-
-
-delBtn.addEventListener('click', delTodoOnServerFetch);
-checkBtn.addEventListener('click', checkBtnfetch);
-
 function addTodo(todo) {
     //remove the default refresh of the submit button
     todo.preventDefault();
@@ -25,7 +6,7 @@ function addTodo(todo) {
 
     dom.input.value = '';
     addTodoOnServer(url + '/todos', singleTodoValue);
-    
+
 }
 
 function fetchTodos(url){
@@ -61,8 +42,6 @@ function addTodoOnServer(url, title) {
     })
 }
 
-fetchTodos(url + '/todos');
-
 function delTodoOnServerFetch(url) {
     fetch(url, {
         method: 'DELETE',
@@ -78,37 +57,51 @@ function delTodoOnServerFetch(url) {
 
 function checkBtnfetch(url) {
     fetch(url, {
-  method: 'PATCH',
-  body: JSON.stringify({
-    // "id": id,
-    "title": title,
-    "completed": true,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
+        method: 'PATCH',
+        body: JSON.stringify({
+            // "id": id,
+            "title": title,
+            "completed": true,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
   .then((response) => response.json())
   .then((data) => console.log(data));
 }
 
 function render(todos) {
-
-     //check button add class
-     checkBtn.classList.add("check-btn");
-     checkBtn.innerHTML = '<i class="fas fa-check"></i>';
-     // trash button add class
-     delBtn.classList.add("del-btn");
-     delBtn.innerHTML = '<i class="fas fa-trash"></i>';
-
     // dom.input.innerHTML = '';
     todos.forEach(todo => {
         dom.todos.innerHTML += `
-        <li data = "${todo.id}">${todo.id}. &nbsp; 
+        <li data = "${todo.id}">${todo.id}. &nbsp;
         <span>${todo.title}</span>
         <span><button><i class="fa-solid fa-check"></i></button>
         <button><i class="fas fa-trash"></i></button></span></li>`
     });
 }
+
+const dom = {
+    input : document.querySelector('input'),
+    addBtn : document.querySelector('.addBtn'),
+    todos : document.querySelector('.todos'),
+};
+
+
+const url = "http://localhost:3000";
+
+dom.addBtn.addEventListener('click', addTodo);
+dom.todos.addEventListener('click', function(e) {
+    console.log(e.target);
+    if(e.target.classList.contains('fa-check')){
+        console.log(`Check btn was clicked`);
+    }else if(e.target.classList.contains('fa-trash')){
+        console.log(`Trash btn was clicked`);
+    }
+})
+
+fetchTodos(url + '/todos');
+
 
 // to check how to attach ID to the check button
